@@ -38,36 +38,38 @@ public class UserSignUp {
     @RequestMapping("/signup")
     public String signUp(@Valid @ModelAttribute("user") User user, BindingResult result, Model model){
 
-       if(result.hasErrors()){
-           model.addAttribute("errors", result);
-          return "index";
-       }
+
+        if(result.hasErrors()){
+            model.addAttribute("errors", "Failed");
+            return "signup";
+        }
       if(uRepo.save(user) != null){
           model.addAttribute("regSuccess", "success");
-      }
 
-        return "index";
+      }
+        return "signup";
     }
     //............SIGN UP NEW USERS...............................
-
-
 
 
     //.................USER LOGIN ................................
 
     @RequestMapping("/login")
-    public String userLoginService(HttpServletRequest request, @RequestParam("userEmail") String userEmail, @RequestParam("userPassword") String userPssword){
+    public String userLoginService(HttpServletRequest request,@Valid @RequestParam("userEmail") String userEmail, @RequestParam("userPassword") String userPssword, Model model){
         session = request.getSession();
         User u =uRepo.findByEmailAndPssword(userEmail, userPssword);
-        if(u.getUserEmail() != null && u.getUserPassword() != null){
+
+        if(u != null && u.getUserEmail() != null && u.getUserPassword() != null){
             //u.setUserPassword(null);
             session.setAttribute("currentUser", u );
             System.out.println("user login success");
+        }else{
+            model.addAttribute("faildMsg", "Login Faild");
+            System.out.println("log in failed");
+            return  "index";
         }
         return "redirect:/user/home";
     }
 
     //...................USER LOGIN.......................
-
-
 }

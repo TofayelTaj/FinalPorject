@@ -1,10 +1,11 @@
 <%@ page import="org.springframework.validation.BindingResult" %>
+<%@ page import="org.springframework.ui.Model" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
 </head>
-<body>
+
 
 
 
@@ -59,15 +60,28 @@
 <!----navbar End-->
 
 
+
+
+
+
 <!----Sign up Form Start-->
 
 <div class="container bg-light shadow-lg p-5 mt-4 ">
     <div class="container">
-        <h1 class="title text-center  ">Crate New Account </h1>
-        <div class="container alert alert-danger " role="alert">
-            Login Faild
-        </div>
-    </div>
+    <h1 class="title text-center  ">Crate New Account </h1>
+<%--    <div class="container alert alert-danger " role="alert">--%>
+<%--        Login Faild--%>
+<%--    </div>--%>
+</div>
+
+
+  <%
+        if(request.getAttribute("regSuccess") != null){
+  %>
+    <script> window.alert(<%=request.getAttribute("regSuccess")%>) </script>
+    <%}%>
+
+
 
 
     <form action="signup">
@@ -98,21 +112,9 @@
 
 
 
-
-
-
-
 </div>
 
-
-
 <!----sign Up Form End-->
-
-
-
-
-
-
 
 
 </body>

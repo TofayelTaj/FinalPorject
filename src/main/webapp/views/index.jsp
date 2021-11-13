@@ -38,7 +38,7 @@
                     <a class="nav-link" href="/register">Sign Up </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Log in </a>
+                    <a class="nav-link" href="/logIn">Log in </a>
                 </li>
 
             </ul>
@@ -57,15 +57,21 @@
 <div class="container bg-light shadow-lg p-5 mt-4 ">
     <div class="container">
         <h1 class="title text-center ">Log in </h1>
-        <div class="container alert alert-danger " role="alert">
-            Login Faild
-        </div>
     </div>
 
 
 
 
     <div class="col-10 container">
+
+        <%
+            if(request.getAttribute("faildMsg") != null){
+        %>
+        <div class="container alert alert-danger " role="alert">
+            Login Faild :( Try Again.
+        </div>
+        <% } %>
+
 
 
         <form action="login">

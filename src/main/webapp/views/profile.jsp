@@ -7,7 +7,7 @@
 <body>
 <h1>this is Profile page </h1>
 <form action="logout">
-    <input type="submit">
+    <input type="submit" value="Log Out">
 </form>
 
 <h2>User profile page </h2>

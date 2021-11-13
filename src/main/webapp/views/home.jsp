@@ -5,14 +5,19 @@
     <title>Home</title>
 </head>
 <body>
-<h1>this is Profile page </h1>
+<h1>this is Dashboard page </h1>
 <form action="logout">
-    <input type="submit" >
+    <input type="submit"  value="Log out">
 </form>
+<a href="/user/entry">Entry</a>
 
-<h2> This is user home page  </h2>
-<h2> Welcome  to our new web Application </h2>
-
+<h1>Total sale : 15215 </h1>
+<br>
+<h1>Total Unpaid Sale : 1250</h1>
+<br>
+<h1>Total Assets : 11511</h1>
+<br>
+<h1>Total Witdraw : 5000</h1>
 <a href="/user/profile">profile</a>
 
 </body>

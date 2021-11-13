@@ -28,6 +28,10 @@ public class UserController {
     public String userProfile(){
         return "profile";
     }
+    @RequestMapping("/entry")
+    public String getEntryPage(){
+        return "accountEntry";
+    }
 
 
 }

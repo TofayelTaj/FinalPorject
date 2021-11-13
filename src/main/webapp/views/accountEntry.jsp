@@ -1,8 +1,11 @@
 <%@ page import="com.example.demo.Entitys.User" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title><%=request.getSession().getAttribute("CurrentUser")%></title>
+    <title><%=request.getSession().getAttribute("currentUser")%></title>
 </head>
 <body>
 <h1>this is Profile page </h1>
@@ -22,20 +25,26 @@
     <input type="submit">
 </form>
 
-<%--...................Assets Input.............--%>
-<form action="">
-    <level>Enter Assets</level>
-    <input type="number" name="assets" placeholder="Enter Assets">
+<%--...................Sale Input.............--%>
+<form action="/user/sale", method="post">
+    <level>Enter Sale</level>
+    <input type="number" name="sale" placeholder="Enter Sale">
     <input type="submit">
 </form>
 
-<%--...................Assets Input.............--%>
+<%--...................Unpaid Sale Input.............--%>
 <form action="">
-    <level>Enter Assets</level>
-    <input type="number" name="assets" placeholder="Enter Assets">
+    <level>Enter Unpaid Sale</level>
+    <input type="number" name="unpaidSale" placeholder="Enter Unpaid Sale">
     <input type="submit">
 </form>
 
+<%--...................withdraw  Input.............--%>
+<form action="">
+    <level>Enter Withdraw</level>
+    <input type="number" name="withdraw" placeholder="Enter Withdraw">
+    <input type="submit">
+</form>
 
 </body>
 </html>

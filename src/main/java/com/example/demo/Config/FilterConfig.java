@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig {
 
     @Bean
-    public FilterRegistrationBean<LoginFilter> getLoginFilter(){
+      public FilterRegistrationBean<LoginFilter> getLoginFilter(){
         FilterRegistrationBean<LoginFilter> loginFilter = new FilterRegistrationBean<>();
         loginFilter.setFilter(new LoginFilter());
         loginFilter.addUrlPatterns("/user/*");

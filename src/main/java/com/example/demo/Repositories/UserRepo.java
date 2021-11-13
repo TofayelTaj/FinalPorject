@@ -11,5 +11,4 @@ public interface UserRepo extends CrudRepository<User, Integer> {
 
     @Query(value = "select * from User  where user_email = ?1 and user_password = ?2 ", nativeQuery = true)
     User findByEmailAndPssword(String email, String password);
-
 }
