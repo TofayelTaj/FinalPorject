@@ -14,15 +14,8 @@ public class SaleEntity {
     private int saleID;
     private int sale;
     private String inpDate;
+    private int userForeignKey;
 
-    @Override
-    public String toString() {
-        return "SaleEntity{" +
-                "saleID=" + saleID +
-                ", sale=" + sale +
-                ", date=" + inpDate +
-                '}';
-    }
 
     public int getSaleID() {
         return saleID;
@@ -40,11 +33,19 @@ public class SaleEntity {
         this.sale = sale;
     }
 
-    public String getDate() {
+    public String getInpDate() {
         return inpDate;
     }
 
-    public void setDate(String date) {
-        this.inpDate = date;
+    public void setInpDate(String inpDate) {
+        this.inpDate = inpDate;
+    }
+
+    public int getUserForeignKey() {
+        return userForeignKey;
+    }
+
+    public void setUserForeignKey(int userForeignKey) {
+        this.userForeignKey = userForeignKey;
     }
 }

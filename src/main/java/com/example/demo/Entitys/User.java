@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
+@Table(uniqueConstraints={@UniqueConstraint(columnNames = {"userEmail"})})
 public class User {
 
 
@@ -22,7 +23,9 @@ public class User {
    @NotBlank(message = "Name can't be empty")
     private String userName;
 
-   @NotBlank(message = "Email requird")
+
+
+   @NotBlank(message = "Email requird" )
     private String userEmail;
     @NotBlank
     private String userPhone;

@@ -1,16 +1,18 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Entitys.User;
+import com.example.demo.Repositories.AssetsRepo;
 import com.example.demo.Repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Controller
@@ -18,6 +20,8 @@ public class UserSignUp {
 
     @Autowired
     private UserRepo uRepo;
+    @Autowired
+    private AssetsRepo assetsRepo;
 
     private  HttpSession session;
 
@@ -40,13 +44,22 @@ public class UserSignUp {
 
 
         if(result.hasErrors()){
-            model.addAttribute("errors", "Failed");
+            model.addAttribute("errors", "Sign Up Failed");
+            model.addAttribute("errorsMsg", "alert-danger");
             return "signup";
         }
-      if(uRepo.save(user) != null){
-          model.addAttribute("regSuccess", "success");
+        try {
+            if (uRepo.save(user) != null) {
+                model.addAttribute("errors", "Registration Success. ");
+                model.addAttribute("errorsMsg", "alert-success");
 
-      }
+            }
+        }catch (Exception e){
+            model.addAttribute("errorsMsg", "alert-danger");
+            model.addAttribute("errors", "Failed. Duplicate Email Entry!");
+            e.printStackTrace();
+        }
+
         return "signup";
     }
     //............SIGN UP NEW USERS...............................
@@ -65,11 +78,15 @@ public class UserSignUp {
             System.out.println("user login success");
         }else{
             model.addAttribute("faildMsg", "Login Faild");
-            System.out.println("log in failed");
+
             return  "index";
         }
-        return "redirect:/user/home";
+        String date = DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now());
+        return "redirect:/user/home?date="+date;
     }
 
     //...................USER LOGIN.......................
+
+
+
 }
