@@ -145,17 +145,19 @@
         <div class="container-fluid">
             <img style="width: 70px;" class="navbar-brand" src="logo.png" alt="logo" href="/logIn">
             <a class="navbar-brand text-uppercase text-xl-center text-white" href="/logIn">Accountant</a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button> -->
-            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+          </button>
+             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <a style="color: rgb(255, 255, 255);" class="btn nav-link  btn-primary  navbar-brand m-1" href="/register">Sign up</a>
+                <a style="color: rgb(255, 255, 255);" class="btn nav-link btn-primary navbar-brand m-1" href="/logIn">Log In</a>
+
             </ul>
 
-            <a style="color: rgb(255, 255, 255);" class="btn nav-link active btn-primary   navbar-brand" href="/register">Sign up</a>
-            <a style="color: rgb(255, 255, 255);" class="btn  btn-primary navbar-brand" href="/logIn">Log In</a>
 
-            <!-- </div> -->
+             </div>
         </div>
     </nav>
 
@@ -168,14 +170,14 @@
 <div class="container mt-5 pt-5">
 
     <div class="row">
-        <div class="col-5">
+        <div class="col-md-5 mb-5">
 
             <div class="container alert ${errorsMsg} " role="alert">
                 ${errors}
             </div>
 
 
-            <form action="signup" class="p-4" style="box-shadow: 6px 6px 10px 10px  rgb(219, 218, 218);">
+            <form action="signup" class="px-4 pb-4 mt-0" style="box-shadow: 6px 6px 10px 10px  rgb(219, 218, 218);">
 
                 <h1 class="title text-uppercase text-center py-4 ">Sign Up </h1>
 
@@ -220,7 +222,7 @@
 
         <!-- carousel -->
 
-        <div class="offset-1 col-6">
+        <div class="offset-md-1 col-md-6 mt-md-4 mt-lg-0">
 
             <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel" style="box-shadow: 6px 6px 10px 10px  rgb(219, 218, 218);">
                 <div class="carousel-inner ">

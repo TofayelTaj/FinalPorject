@@ -164,18 +164,16 @@
         <div class="container-fluid">
             <img style="width: 70px;" class="navbar-brand" src="logo.png" alt="logo">
             <a class="navbar-brand text-uppercase text-xl-center text-white" href="/logIn">Accountant</a>
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button> -->
-            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            </ul>
+          </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            <a style="color: white;" class="btn  btn-primary navbar-brand" href="/register">Sign up</a>
-            <a style="color: white;" class="btn nav-link  btn-primary navbar-brand" href="/logIn">Log In</a>
-<%--            <a class="nav-link" href="/logIn">Log in </a>--%>
-
-            <!-- </div> -->
+                    <a style="color: white;" class="btn nav-link btn-primary navbar-brand m-1" href="/register">Sign up</a>
+                    <a style="color: white;" class="btn nav-link  btn-primary navbar-brand m-1" href="/logIn">Log In</a>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -191,7 +189,7 @@
 <div class="container mt-5 pt-5">
 
     <div class="row">
-        <div class="col-5">
+        <div class=" col-md-5  ">
 
 
             <%
@@ -226,7 +224,7 @@
 
         <!-- carousel -->
 
-        <div class="offset-1 col-6">
+        <div class="offset-md-1 col-md-6  mt-sm-4 mt-lg-0    ">
 
             <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel" style="box-shadow: 6px 6px 10px 10px  rgb(219, 218, 218);">
                 <div class="carousel-inner ">

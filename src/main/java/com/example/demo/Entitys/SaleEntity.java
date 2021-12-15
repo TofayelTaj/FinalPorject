@@ -17,6 +17,7 @@ public class SaleEntity {
     private int userForeignKey;
 
 
+
     public int getSaleID() {
         return saleID;
     }

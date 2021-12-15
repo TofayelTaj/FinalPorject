@@ -1,10 +1,7 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Entitys.*;
-import com.example.demo.Repositories.AssetsRepo;
-import com.example.demo.Repositories.SaleRepo;
-import com.example.demo.Repositories.UnpaidSaleRepo;
-import com.example.demo.Repositories.WithdrawRepo;
+import com.example.demo.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +22,8 @@ public class AccountantController {
     private AssetsRepo assetsRepository;
     @Autowired
     private WithdrawRepo withdrawRepository;
+    @Autowired
+    private ProfitRepo profitRepo;
 
     @Autowired
     private  UserInfoController userInfo;
@@ -56,7 +55,6 @@ public class AccountantController {
         assetsEntry.setUserForeignKey(userInfo.getUserId(request));
         assetsEntry.setInpDate(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now()));
         assetsRepository.save(assetsEntry);
-
         return "accountEntry";
     }
 
@@ -65,13 +63,23 @@ public class AccountantController {
         withdrawEntry.setUserForeignKey(userInfo.getUserId(request));
         withdrawEntry.setInpDate(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now()));
 
-        AssetsEntity assetsEntry = new AssetsEntity();
-        assetsEntry.setAssets(withdrawEntry.getWithdraw() * -1);
-        assetsEntry.setUserForeignKey(userInfo.getUserId(request));
-        assetsEntry.setInpDate(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now()));
-        assetsRepository.save(assetsEntry);
+        ProfitEntity profitEntity = new ProfitEntity();
+        profitEntity.setProfit(withdrawEntry.getWithdraw() * -1);
+        profitEntity.setUserForeignKey(userInfo.getUserId(request));
+        profitEntity.setInpDate(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now()));
+        profitRepo.save(profitEntity);
 
         withdrawRepository.save(withdrawEntry);
+        return "accountEntry";
+    }
+
+
+
+    @PostMapping("/profit")
+    public String profitCalculator(@ModelAttribute ProfitEntity profitEntity, HttpServletRequest request){
+        profitEntity.setUserForeignKey(userInfo.getUserId(request));
+        profitEntity.setInpDate(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now()));
+        profitRepo.save(profitEntity);
         return "accountEntry";
     }
 

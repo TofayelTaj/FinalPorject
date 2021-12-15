@@ -15,7 +15,7 @@
 
 
     <title>Profile</title>
-    <link rel="shortcut icon" href="logo.png">
+    <link rel="shortcut icon" href="/logo.png">
 </head>
 
 
@@ -24,7 +24,6 @@
 
 
 <%
-//    HttpSession session1 = (HttpSession) request.getSession();
     User user = (User) session.getAttribute("currentUser");
 %>
 
@@ -39,27 +38,32 @@
 
             <img style="width: 70px;" class="navbar-brand" src="logo.png" alt="logo">
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li>
-                    <form action="/user/home">
-                        <input hidden class="form-control" type="date" name="date">
-                        <button href="/user/home" class="navbar-brand text-uppercase btn text-white " type="submit"> Dashboard </button>
-                    </form>
-                </li>
-                <a class="navbar-brand text-uppercase text-xl-center text-white" href="/user/entry">Acc. Entry</a>
-                <a class="navbar-brand text-uppercase text-xl-center text-white" href="/user/profile">profile</a>
-                <a class="navbar-brand text-uppercase text-xl-center text-white" href="">About Us</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            </ul>
+                    <li>
+                        <form action="/user/home">
+                            <input hidden class="form-control" type="date" name="date">
+                            <button href="/user/home" class="navbar-brand text-uppercase btn text-white " type="submit"> Dashboard </button>
+                        </form>
+                    </li>
+                    <a  class="navbar-brand text-uppercase text-xl-center text-white " href="/user/entry">Acc. Entry</a>
+                    <a style="color: tomato" class="navbar-brand text-uppercase text-xl-center " href="/user/profile">profile</a>
+                    <a class="navbar-brand text-uppercase text-xl-center text-white" href="">About Us</a>
 
-            <form action="logout">
-                <input class="btn btn-danger" type="submit" value="Log out">
-            </form>
+                </ul>
 
-            <!-- </div> -->
+                <form action="logout">
+                    <input class="btn btn-danger" type="submit" value="Log out">
+                </form>
+            </div>
         </div>
     </nav>
 </div>
@@ -72,20 +76,21 @@
 
 
     <div class="card p-3 py-4">
-        <div class="text-center"> <img src="logo.png" width="200" class="rounded-circle"> </div>
+        <div class="text-center"> <img src="logo.png" width="200" > </div>
+
         <div class="text-center mt-2">
             <h1 class="text-uppercase">Profile</h1>
         </div>
-        <div class=" mt-3 bg-light shadow-lg ">
+        <div class="  mt-3 bg-light shadow-lg ">
 
-            <div class="shadow-lg p-3 my-3 mx-4">
+            <div class="shadow-lg p-3 my-3 mx-4 ">
                 <form class="mx-3" action="">
                     <label class="form-label">User Name : </label>
                     <input class="form-control" type="text" value=" <%=user.getUserName()%>" readonly>
                 </form>
             </div>
 
-            <div class="shadow-lg p-3 my-3 mx-4">
+            <div class="shadow-lg p-3 my-3 mx-4 ">
                 <form class="mx-3" action="">
                     <label class="form-label">User ID: </label>
                     <input class="form-control" type="text" value=" <%=user.getUserId()%>" readonly>
@@ -93,7 +98,7 @@
             </div>
 
 
-            <div class="shadow-lg p-3 my-3 mx-4">
+            <div class="shadow-lg p-3 my-3 mx-4 ">
                 <form class="mx-3" action="">
                     <label class="form-label">User Email : </label>
                     <input class="form-control" type="text" value=" <%=user.getUserEmail()%>" readonly>
@@ -101,7 +106,7 @@
             </div>
 
 
-            <div class="shadow-lg p-3 my-3 mx-4">
+            <div class="shadow-lg p-3 my-3 mx-4 ">
                 <form class="mx-3" action="">
                     <label class="form-label">User Phone : </label>
                     <input class="form-control" type="text" value=" <%=user.getUserPhone()%>" readonly>
